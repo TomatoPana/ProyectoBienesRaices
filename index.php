@@ -72,86 +72,43 @@
     <div class="contenedor-anuncio">
 
       <?php 
+        $stmt = $conn->prepare("SELECT nombre, descripcion, imagen, banios, cocheras, recamaras, precio FROM venta WHERE en_venta = 1 ORDER BY id ASC LIMIT 3");
+        if($stmt->execute()){
+          while ($row = $stmt->fetch()){
+            ?>
+            <div class="anuncio">
+              <img src="img/anuncio1.jpg" alt="anuncio">
+              <div class="contenido-anuncio centrar-texto">
+                <h3><?php echo $row['nombre']; ?></h3>
+                <p><?php echo $row['descripcion']; ?></p>
+                <p class="precio">$<?php echo $row['precio']; ?></p>
 
+                <ul class="icono-caracteristicas">
+                  <li>
+                    <img src="img/icono_wc.svg" alt="WC">
+                    <p><?php echo $row['banios']; ?></p>
+                  </li>
+                  <li>
+                    <img src="img/icono_estacionamiento.svg" alt="Estacionamiento">
+                    <p><?php echo $row['cocheras']; ?></p>
+                  </li>
+                  <li>
+                    <img src="img/icono_dormitorio.svg" alt="Dormitorio">
+                    <p><?php echo $row['recamaras']; ?></p>
+                  </li>
+                </ul>
+
+                <a href="anuncio.html" class="boton boton-amarillo d-block">Ver Propiedad</a>
+              </div>
+            </div>
+            <?php
+          }
+        } else {
+          die();
+        }
       ?>
 
-      <div class="anuncio">
-        <img src="img/anuncio1.jpg" alt="anuncio">
-        <div class="contenido-anuncio centrar-texto">
-          <h3>Casas de Lujo en el Lago</h3>
-          <p>Casa en el lago con exelente vista, acabads de lujo a un exelente precio</p>
-          <p class="precio">$3,000,000</p>
-
-          <ul class="icono-caracteristicas">
-            <li>
-              <img src="img/icono_wc.svg" alt="WC">
-              <p>3</p>
-            </li>
-            <li>
-              <img src="img/icono_estacionamiento.svg" alt="Estacionamiento">
-              <p>2</p>
-            </li>
-            <li>
-              <img src="img/icono_dormitorio.svg" alt="Dormitorio">
-              <p>3</p>
-            </li>
-          </ul>
-
-          <a href="anuncio.html" class="boton boton-amarillo d-block">Ver Propiedad</a>
-        </div>
-      </div>
-
-      <div class="anuncio">
-        <img src="img/anuncio2.jpg" alt="anuncio">
-        <div class="contenido-anuncio centrar-texto">
-          <h3>Casa con Terminados de Lujo</h3>
-          <p>Casa con diseño moderno, asi como tecnologia inteligente y amueblada</p>
-          <p class="precio">$2,000,000</p>
-
-          <ul class="icono-caracteristicas">
-            <li>
-              <img src="img/icono_wc.svg" alt="WC">
-              <p>3</p>
-            </li>
-            <li>
-              <img src="img/icono_estacionamiento.svg" alt="Estacionamiento">
-              <p>2</p>
-            </li>
-            <li>
-              <img src="img/icono_dormitorio.svg" alt="Dormitorio">
-              <p>3</p>
-            </li>
-          </ul>
-
-          <a href="anuncio.html" class="boton boton-amarillo d-block">Ver Propiedad</a>
-        </div>
-      </div>
-
-      <div class="anuncio">
-        <img src="img/anuncio3.jpg" alt="anuncio">
-        <div class="contenido-anuncio centrar-texto">
-          <h3>Casa con Alberca y Enorme Jardin</h3>
-          <p>Casacon alberca y acabados modernos con estilo</p>
-          <p class="precio">$3,000,000</p>
-
-          <ul class="icono-caracteristicas">
-            <li>
-              <img src="img/icono_wc.svg" alt="WC">
-              <p>3</p>
-            </li>
-            <li>
-              <img src="img/icono_estacionamiento.svg" alt="Estacionamiento">
-              <p>2</p>
-            </li>
-            <li>
-              <img src="img/icono_dormitorio.svg" alt="Dormitorio">
-              <p>3</p>
-            </li>
-          </ul>
-
-          <a href="anuncio.html" class="boton boton-amarillo d-block">Ver Propiedad</a>
-        </div>
-      </div>
+      
     </div>
     <div class="ver-end">
       <a href="anuncios.html" class="boton boton-verde">Ver Todas</a>
