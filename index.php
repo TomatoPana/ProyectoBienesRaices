@@ -1,3 +1,6 @@
+<?php
+  require_once('sesion.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +72,7 @@
     <div class="contenedor-anuncio">
 
       <?php 
-        
+
       ?>
 
       <div class="anuncio">
