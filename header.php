@@ -31,7 +31,7 @@
           <?php 
             if(isset($_SESSION['user'])){
               ?>
-                <a href="subir.html">Vender</a>
+                <a href="subir.php">Vender</a>
                 <a href="mi_cuenta.php">Mi Cuenta</a>
                 <a href="cerrar_sesion.php">Cerrar sesion</a>
               <?php

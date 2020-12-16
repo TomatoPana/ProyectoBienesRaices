@@ -51,7 +51,7 @@ h4 {
     text-decoration: none;
     font-size: 1.8rem;
     padding: 1rem 3rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     display: inline-block;
     border: none;
 }
@@ -62,6 +62,14 @@ h4 {
 
 .boton-amarillo{
     background-color: #e08709;
+}
+
+.boton-azul{
+    background-color: #004085;
+}
+
+.boton-rojo{
+    background-color: #721c24;
 }
 
 .boton-verde{

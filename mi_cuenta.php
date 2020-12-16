@@ -1,6 +1,6 @@
 <?php
 require_once('header.php');
-$ventasStmt = $conn->prepare("SELECT id, nombre, descripcion, imagen, banios, cocheras, recamaras, precio FROM venta WHERE id_usuario = ? ORDER BY id ASC");
+$ventasStmt = $conn->prepare("SELECT id, nombre, descripcion, imagen, banios, cocheras, recamaras, precio FROM venta WHERE id_usuario = ? AND en_venta = 1 ORDER BY id ASC");
 $blogStmt = $conn->prepare("SELECT * FROM blog WHERE id_usuario = ? ORDER BY id ASC");
 $comprasStmt = $conn->prepare("SELECT venta.id, venta.nombre, venta.descripcion, venta.imagen, venta.banios, venta.cocheras, venta.recamaras, venta.precio, compra.id_usuario FROM venta INNER JOIN compra ON compra.id_venta = venta.id WHERE compra.id_usuario = ? ORDER BY id ASC");
 ?>
@@ -42,6 +42,8 @@ $comprasStmt = $conn->prepare("SELECT venta.id, venta.nombre, venta.descripcion,
                   </ul>
 
                   <a href="anuncio.php?id=<?php echo $row['id']; ?>" class="boton boton-amarillo d-block">Ver Propiedad</a>
+                  <a href="editarVenta.php?id=<?php echo $row['id']; ?>" class="boton boton-azul d-block">Editar Propiedad</a>
+                  <a href="eliminarVenta.php?id=<?php echo $row['id']; ?>" class="boton boton-rojo d-block">Eliminar Propiedad</a>
                 </div>
               </div>
             <?php
