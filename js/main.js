@@ -190,3 +190,44 @@ if(datosVentaEditar != null) {
     event.preventDefault();
   });
 }
+
+let datosVentaEliminar = document.getElementById("datosVentaEliminar");
+if(datosVentaEliminar != null) {
+  datosVentaEliminar.addEventListener("submit", function(event){
+    let id = document.getElementById("id");
+
+
+    let message = document.getElementById("message");
+    let messageOk = document.getElementById("messageOk");
+
+
+
+    let http = new XMLHttpRequest();
+    let url = "datosVentaEliminar.php";
+    let params = new FormData();
+    params.append("id", id.value);
+
+    http.open('POST', url, true);
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+          let result = JSON.parse(http.responseText);
+          console.log(result);
+          if(result.status != 'ok'){
+            message.style.display = "block";
+            message.innerHTML = result.message;
+            messageOk.style.display = "none";
+            messageOk.innerHTML = "";
+          } else {
+            message.style.display = "none";
+            message.innerHTML = "";
+            messageOk.style.display = "block";
+            messageOk.innerHTML = result.message;
+          }
+        }
+    }
+
+    http.send(params);
+    event.preventDefault();
+  });
+}
