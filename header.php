@@ -36,7 +36,7 @@
               <?php
             } else {
               ?>
-                <a href="inicio_sesion.html">Iniciar sesion</a>
+                <?php echo ($_SERVER['SCRIPT_NAME'] === '/login.php') ? '' : '<a href="login.php">Iniciar sesion</a>'; ?>
               <?php
             }
           ?>
