@@ -114,29 +114,27 @@
 
     <h3 class="centrar-texto">Nuestro Blog</h3>
 
-    <article class="entrada-blog">
-      <div class="imagen">
-        <img src="img/blog1.jpg" alt="Blog">
-      </div>
-      <div class="texto-entrada">
-        <a href="entrada.html">
-          <h4>Terraza en el Techo de tu casa</h4>
-        </a>
-        <p>Consejos para construir una terraza en el techo de tu casa</p>
-      </div>
-    </article>
-
-    <article class="entrada-blog">
-      <div class="imagen">
-        <img src="img/blog2.jpg" alt="Blog">
-      </div>
-      <div class="texto-entrada">
-        <a href="entrada.html">
-          <h4>Guia para la decoracion de tu hogar</h4>
-        </a>
-        <p>Consejos para la decoracion de tu casa</p>
-      </div>
-    </article>
+    <?php 
+      $stmt2 = $conn->prepare("SELECT * FROM blog ORDER BY id ASC LIMIT 2");
+      if($stmt2->execute()){
+        while ($row = $stmt2->fetch()){
+          ?>
+            <article class="entrada-blog">
+              <div class="imagen">
+                  <img src="img/<?php echo $row['imagen']; ?>" alt="Blog">
+              </div>
+              <div class="texto-entrada">
+                  <a href="entrada.php?id=<?php echo $row['id']; ?>">
+                      <h4><?php echo $row['nombre']; ?></h4>
+                  </a>
+                  <p><?php echo $row['descripcion']; ?></p>
+              </div>
+            </article>
+          <?php
+        }
+      }
+    ?>
+    
   </section>
 
   <section class="testimoniales">

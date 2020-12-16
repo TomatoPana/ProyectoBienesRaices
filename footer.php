@@ -3,7 +3,7 @@
       <nav class="navegacion">
         <a targer="_blank" href="nosotros.php">Nosotros</a>
         <a href="anuncios.php">Anuncios</a>
-        <a href="blog.html">Blog</a>
+        <a href="blog.php">Blog</a>
       </nav>
       <p class="copyright">Todos los derechos reservados &copy;</p>
     </div>

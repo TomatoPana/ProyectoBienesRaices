@@ -26,7 +26,7 @@
         <nav class="navegacion">
           <a targer="_blank" href="nosotros.php">Nosotros</a>
           <a href="anuncios.php">Anuncios</a>
-          <a href="blog_actualizado.html">Blog</a>
+          <a href="blog.php">Blog</a>
           
           <?php 
             if(isset($_SESSION['user'])){
