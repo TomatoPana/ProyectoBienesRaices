@@ -33,6 +33,7 @@
               ?>
                 <a href="subir.html">Vender</a>
                 <a href="mi_cuenta.html">Mi Cuenta</a>
+                <a href="cerrar_sesion.php">Cerrar sesion</a>
               <?php
             } else {
               ?>

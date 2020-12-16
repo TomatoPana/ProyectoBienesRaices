@@ -4,10 +4,14 @@ require_once('header.php');
 
 <h1 class="centrar-texto">Iniciar Sesion</h1>
 
-<form action="php/inicio_sesion.php" method="POST" class="datosValidos contenedor contenedor-centrado seccion">
+<div style="display: none;" class="alert alert-danger" role="alert" id="message"></div>
+
+<div id="hide"></div>
+
+<form action="inicio_sesion.php" id="loginForm" method="POST" class="datosValidos contenedor contenedor-centrado seccion">
 
     <label for="nombre">Correo:</label>
-    <input type="text" id="Cusuario" name="Cusuario" required>
+    <input type="email" id="Cusuario" name="Cusuario" required>
 
     <label for="nombre">Contraseña:</label>
     <input type="password" id="Contrasena" name="Contrasena" required>
