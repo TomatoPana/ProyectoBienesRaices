@@ -22,7 +22,7 @@ require_once('header.php');
 <div class="contenedor contenedor-centrado seccion centrar-texto">
   <p>¿Aun no estas registrado?</p>
   <br>
-  <a href="registrarse.html">
+  <a href="registrarse.php">
       <p>Has click aqui</p>
   </a>
 </div>
