@@ -73,14 +73,14 @@
     
   </div>
   <div class="ver-end">
-    <a href="anuncios.html" class="boton boton-verde">Ver Todas</a>
+    <a href="anuncios.php" class="boton boton-verde">Ver Todas</a>
   </div>
 </main>
 <section class="imagen-contacto seccion">
   <div class="contenedor contenido-contacto">
     <h2>Encuentra la Casa de Tus Sueños</h2>
     <p>Busca facil y sencillo nuetras casas en venta</p>
-    <a href="anuncios.html" class="boton boton-amarillo">Ver</a>
+    <a href="anuncios.php" class="boton boton-amarillo">Ver</a>
   </div>
 </section>
 
