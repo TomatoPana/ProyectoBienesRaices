@@ -137,3 +137,56 @@ if(formElementoVenta != null) {
     event.preventDefault();
   });
 }
+
+let datosVentaEditar = document.getElementById("datosVentaEditar");
+if(datosVentaEditar != null) {
+  datosVentaEditar.addEventListener("submit", function(event){
+    let Npropiedad = document.getElementById("Npropiedad");
+    let Dpropiedad = document.getElementById("Dpropiedad");
+    let Vpropiedad = document.getElementById("Vpropiedad");
+    let NBpropiedad = document.getElementById("NBpropiedad");
+    let NCpropiedad = document.getElementById("NCpropiedad");
+    let NRpropiedad = document.getElementById("NRpropiedad");
+    let id = document.getElementById("id");
+
+
+    let message = document.getElementById("message");
+    let messageOk = document.getElementById("messageOk");
+
+
+
+    let http = new XMLHttpRequest();
+    let url = "datosVentaEditar.php";
+    let params = new FormData();
+    params.append("Npropiedad", Npropiedad.value);
+    params.append("Dpropiedad", Dpropiedad.value);
+    params.append("Vpropiedad", Vpropiedad.value);
+    params.append("NBpropiedad", NBpropiedad.value);
+    params.append("NCpropiedad", NCpropiedad.value);
+    params.append("NRpropiedad", NRpropiedad.value);
+    params.append("id", id.value);
+
+    http.open('POST', url, true);
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+          let result = JSON.parse(http.responseText);
+          console.log(result);
+          if(result.status != 'ok'){
+            message.style.display = "block";
+            message.innerHTML = result.message;
+            messageOk.style.display = "none";
+            messageOk.innerHTML = "";
+          } else {
+            message.style.display = "none";
+            message.innerHTML = "";
+            messageOk.style.display = "block";
+            messageOk.innerHTML = result.message;
+          }
+        }
+    }
+
+    http.send(params);
+    event.preventDefault();
+  });
+}
